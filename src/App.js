@@ -7,19 +7,14 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      red: "red ligth",
-      yellow: "yellow ligth",
-      green: "green ligth",
+      selected: ''
     }
   }
   
-  lightOn = (e) => {
-    e.preventDefault();
-    this.setState = {
-      red: "red ligth selected",
-      yellow: "yellow ligth selected",
-      green: "green ligth selected"
-    }
+  lightOn = (color) => {
+    this.setState({
+      selected: color
+    });
   }
 
   render (){
@@ -27,9 +22,9 @@ class App extends React.Component {
       <main>
         <div className="trafficTop"></div>
         <div className="container">
-          < Ligth color={this.state.red} onClick={this.lightOn}/>
-          < Ligth color={this.state.yellow} onClick={this.lightOn}/>
-          < Ligth color={this.state.green} onClick={this.lightOn}/>
+          < Ligth color="red" click={this.lightOn} selected={this.state.selected === "red"}/>
+          < Ligth color="yellow" click={this.lightOn} selected={this.state.selected === "yellow"}/>
+          < Ligth color="green" click={this.lightOn} selected={this.state.selected === "green"}/>
         </div>
       </main>
     );
